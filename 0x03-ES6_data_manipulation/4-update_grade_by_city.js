@@ -1,14 +1,16 @@
-function updateStudentGradeByCity(arr, city, newGrades) {
-  const result = arr.filter((item) => item.location === city).map((item) => {
-    const temp = item;
-    for (const i of newGrades) {
-      if (i.studentId === item.id) {
-        temp.grade = i.grade;
+export default function updateStudentGradeByCity(listStudents, city, newGrades) {
+  const students = listStudents.filter((student) => student.location === city);
+  for (const student of students) {
+    student.grade = 'N/A';
+  }
+  const newStudents = students.map((student) => {
+    const single = student;
+    for (const grade of newGrades) {
+      if (single.id === grade.studentId) {
+        single.grade = grade.grade;
       }
     }
-    if (!temp.grade) temp.grade = 'N/A';
-    return temp;
+    return single;
   });
-  return result;
+  return newStudents;
 }
-export default updateStudentGradeByCity;
