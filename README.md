@@ -1,1 +1,1 @@
-# alx-frontend-javascript Apart #Apart of the specialisation
+# alx-frontend-javascript
